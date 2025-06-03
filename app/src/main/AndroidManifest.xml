@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.mycolloc">
+    <!-- Internet Permission -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- Location Permissions -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- Storage Permissions -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+
+    <application
+        android:name=".MyCollocApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/icons"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/icons"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
+        <activity
+            android:name=".ui.post.EditOfferActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.auth.ForgetPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.profile.MyOfffersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.profile.activity_my_bids"
+            android:exported="false" />
+        <activity
+            android:name=".ui.post.activity_user_bids"
+            android:exported="false" />
+        <activity
+            android:name=".ui.post.BidsActivity"
+            android:exported="false" /> <!-- Google Maps API Key -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/maps_api_key" />
+
+        <activity
+            android:name=".ui.splash.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.home.HomeActivity" />
+        <activity android:name=".ui.post.PostOfferActivity" />
+        <activity android:name=".ui.details.DetailsArticleActivity" />
+        <activity android:name=".ui.auth.LoginActivity" />
+        <activity android:name=".ui.auth.SignupActivity" />
+        <activity android:name=".ui.admin.AdminDashboardActivity" />
+    </application>
+
+</manifest>

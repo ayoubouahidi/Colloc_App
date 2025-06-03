@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="140dp"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Image principale -->
+        <ImageView
+            android:id="@+id/offerImage"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/sample_apartment"
+            android:background="@drawable/rounded_left_image"
+            android:clipToOutline="true" />
+
+        <!-- Partie droite -->
+        <LinearLayout
+            android:id="@+id/infoSection"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@id/offerImage"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <!-- Ligne top : catégorie + icons -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/offerCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Apartment"
+                    android:background="@drawable/bg_label_blue"
+                    android:textColor="@android:color/white"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="2dp"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:layout_alignParentStart="true" />
+
+                <!-- Bouton Favoris ❤️ -->
+                <ImageView
+                        android:id="@+id/btnFavorite"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="4dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_heart_outlined"
+                    android:visibility="visible" />
+
+                <!-- Bouton Menu ⋮ -->
+                <ImageView
+                    android:id="@+id/btnMore"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="4dp"
+                    android:src="@drawable/ic_more_vert"
+                    android:clickable="true"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/offerPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="950 DH / Mois"
+                android:textColor="@color/primary"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppinssemibold"
+                android:layout_marginTop="6dp" />
+
+            <TextView
+                android:id="@+id/offerLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="68 Rodeo Drive, Los Angeles"
+                android:textSize="12sp"
+                android:textColor="#666666"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/poppinsmedium" />
+
+
+        </LinearLayout>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
