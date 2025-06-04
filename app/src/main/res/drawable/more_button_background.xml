@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+
+    <solid android:color="#E0E0E0" />  <!-- رمادي فاتح -->
+
+    <size
+        android:width="40dp"
+        android:height="40dp" />
+
+    <corners android:radius="20dp" />
+
+    <padding
+        android:left="8dp"
+        android:top="8dp"
+        android:right="8dp"
+        android:bottom="8dp" />
+
+    <stroke
+        android:width="1dp"
+        android:color="#BDBDBD" />  <!-- إطار رمادي متوسط -->
+
+</shape>

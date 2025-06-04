@@ -10,15 +10,42 @@
     <color name="text_primary">#212121</color>
     <color name="text_secondary">#757575</color>
     <color name="text_hint">#BDBDBD</color>
-
+    <color name="secondary_light">#FFC107</color> <!-- أصفر كهرماني فاتح -->
+    <color name="divider_color">#E0E0E0</color>
     <!-- Background colors -->
     <color name="background">#FFFFFF</color>
     <color name="surface">#FFFFFF</color>
-    <color name="error">#B00020</color>
+    <color name="background_light">#FAFAFA</color> <!-- لون رمادي فاتح جداً -->
+    <color name="accent_light">#FF4081</color>
+    <color name="primary_variant">#1976D2</color>
+    <color name="primary_ripple">#1565C0</color>
 
-    <!-- Status colors -->
+    <!-- Background Colors -->
+    <color name="surface_background">#FAFAFA</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="empty_state_background">#F5F5F5</color>
+
+    <!-- Text Colors -->
+
+
+    <!-- Icon Colors -->
+    <color name="icon_tint">#616161</color>
+    <color name="icon_disabled">#BDBDBD</color>
+
+    <!-- Status Colors -->
     <color name="success">#4CAF50</color>
-    <color name="warning">#FFC107</color>
+    <color name="warning">#FF9800</color>
+    <color name="error">#F44336</color>
+
+    <!-- Divider and Border Colors -->
+    <color name="divider">#E0E0E0</color>
+    <color name="border_light">#EEEEEE</color>
+
+    <!-- Overlay Colors -->
+    <color name="overlay_light">#1A000000</color>
+    <color name="overlay_dark">#4D000000</color>
+    <!-- Status colors -->
+
     <color name="info">#2196F3</color>
 
     <!-- Map colors -->
@@ -38,4 +65,6 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="green_500">#4CAF50</color>
+    <color name="status_available">#4CAF50</color>
+    <color name="success_light">#DFF5E1</color>
 </resources>

@@ -4,25 +4,191 @@
     android:id="@+id/homeScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="12dp"
-    android:background="@android:color/white"
+    android:background="@color/background_light"
     android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="24dp">
 
-        <!-- Greeting Row -->
+        <!-- Header Section with Gradient Background -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="8dp"
+            android:backgroundTint="@color/green_500">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <!-- Profile and Notification Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp">
+
+                    <!-- Profile Image -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        app:cardCornerRadius="24dp"
+                        app:cardElevation="4dp"
+                        android:layout_marginEnd="12dp">
+
+                        <ImageView
+                            android:id="@+id/profileImage"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/ic_profile_placeholder"
+                            android:scaleType="centerCrop"/>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Greeting Text -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:text="Bonjour 👋"
+                            android:textSize="14sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/poppinsregular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/welcomingText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="${user.username}"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:textColor="@android:color/white"
+                            android:fontFamily="@font/poppinsbold" />
+                    </LinearLayout>
+
+                    <!-- Notification Bell -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        app:cardCornerRadius="22dp"
+                        app:cardElevation="4dp"
+                        android:backgroundTint="@color/white">
+
+                        <ImageView
+                            android:id="@+id/notificationBell"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_notification"
+                            app:tint="@android:color/black"/>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <!-- Location Section -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="8dp">
+
+                    <ImageView
+                        android:src="@drawable/ic_location"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        app:tint="@android:color/white"
+                        android:layout_marginEnd="6dp"/>
+
+                    <TextView
+                        android:id="@+id/userLocation"
+                        android:text="Los Angeles, CA"
+                        android:textColor="@android:color/white"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Enhanced Search Box -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="32dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            android:backgroundTint="@android:color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="20dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:src="@drawable/ic_search"
+                    app:tint="#454851"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_marginEnd="12dp"/>
+
+                <EditText
+                    android:id="@+id/searchEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:hint="Rechercher par ville ou région..."
+                    android:textSize="15sp"
+                    android:textColorHint="#454851"
+                    android:textColor="@color/text_primary"
+                    android:background="@null"
+                    android:inputType="text"
+                    android:fontFamily="@font/poppinsregular"/>
+
+                <!-- Filter Button -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp"
+                    android:backgroundTint="#454851">
+
+                    <ImageView
+                        android:id="@+id/filterButton"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_filter"
+                        app:tint="@android:color/white"/>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Section Header with View All -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:layout_marginTop="20dp"
             android:layout_marginBottom="16dp">
 
-            <!-- LEFT: Greeting -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -30,105 +196,161 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/welcomingText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Bonjour  ${user.username},"
-                    android:textStyle="bold"
+                    android:text="Populaires près de chez vous"
                     android:textSize="18sp"
-                    android:textColor="@android:color/black"
-                    android:fontFamily="@font/poppinssemibold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/poppinsbold"
+                    android:textColor="@color/text_primary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-
-                <LinearLayout
+                <TextView
+                    android:text="Découvrez les destinations tendances"
+                    android:textSize="13sp"
+                    android:textColor="#454851"
+                    android:fontFamily="@font/poppinsregular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:layout_marginTop="2dp" />
+            </LinearLayout>
 
-                    <ImageView
-                        android:src="@drawable/ic_location"
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        app:tint="@color/primary"
-                        android:layout_marginEnd="4dp"/>
+            <!-- View All Button -->
+            <LinearLayout
+                android:id="@+id/viewAllButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="8dp">
 
-                    <TextView
-                        android:id="@+id/userLocation"
-                        android:text="Los Angeles, CA"
-                        android:textColor="@color/primary"
-                        android:textSize="14sp"
-                        android:fontFamily="@font/poppinsmedium"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
+                <TextView
+                    android:text="Voir tout"
+                    android:textSize="14sp"
+                    android:textColor="@color/green_500"
+                    android:fontFamily="@font/poppinssemibold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_arrow_right"
+                    app:tint="@color/primary"
+                    android:layout_marginStart="4dp"/>
             </LinearLayout>
         </LinearLayout>
 
-
-        <!-- Search Box -->
+        <!-- Enhanced RecyclerView Container -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="24dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="2dp">
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            android:backgroundTint="@android:color/white">
 
-            <LinearLayout
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/popularRecyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingHorizontal="16dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-                <ImageView
-                    android:src="@drawable/ic_search"
-                    app:tint="@color/black"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginEnd="8dp"/>
-
-                <EditText
-                    android:id="@+id/searchEditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:hint="Rechercher par Ville"
-                    android:textSize="14sp"
-                    android:background="@null"
-                    android:inputType="text"
-                    android:fontFamily="@font/poppinsmedium"/>
-            </LinearLayout>
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                android:padding="12dp"
+                android:nestedScrollingEnabled="false"/>
         </androidx.cardview.widget.CardView>
 
-        <!-- Section Title -->
+        <!-- Quick Actions Section -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="8dp">
+            android:orientation="vertical"
+            android:layout_marginTop="32dp">
 
             <TextView
-                android:text="Populaires près de chez vous"
-                android:textSize="16sp"
+                android:text="Actions rapides"
+                android:textSize="18sp"
                 android:textStyle="bold"
-                android:fontFamily="@font/poppinssemibold"
-                android:textColor="@android:color/black"
-                android:layout_width="0dp"
+                android:fontFamily="@font/poppinsbold"
+                android:textColor="@color/text_primary"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_marginBottom="16dp" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <!-- Quick Action 1 -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    android:backgroundTint="@color/accent_light">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/ic_bookmark"
+                            app:tint="@color/green_500"
+                            android:layout_marginEnd="12dp"/>
+
+                        <TextView
+                            android:text="Favoris"
+                            android:textSize="14sp"
+                            android:textColor="@color/text_primary"
+                            android:fontFamily="@font/poppinssemibold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Quick Action 2 -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    android:backgroundTint="@color/secondary_light">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/ic_history"
+                            app:tint="@color/green_500"
+                            android:layout_marginEnd="12dp"/>
+
+                        <TextView
+                            android:text="Récents"
+                            android:textSize="14sp"
+                            android:textColor="@color/text_primary"
+                            android:fontFamily="@font/poppinssemibold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
         </LinearLayout>
-
-        <!-- RecyclerView Horizontal -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/popularRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="16dp"
-            android:clipToPadding="false"
-            android:overScrollMode="never"
-            android:paddingBottom="8dp"/>
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

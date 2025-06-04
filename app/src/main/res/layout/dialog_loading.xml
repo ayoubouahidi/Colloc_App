@@ -18,5 +18,5 @@
         android:layout_height="wrap_content"
         android:text="Please wait..."
         android:textSize="16sp"
-        android:textColor="@android:color/black" />
+        android:textColor="@color/green_500" />
 </LinearLayout>

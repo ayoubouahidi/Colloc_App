@@ -1,43 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/favoritesRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
-    android:padding="24dp">
+    android:background="@color/surface_background"
+    android:fitsSystemWindows="true">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/favoritesRecyclerView"
+    <!-- Main content with padding -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:overScrollMode="never"
-        android:visibility="gone" />
+        android:orientation="vertical"
+        android:padding="16dp">
 
+        <!-- Header Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingBottom="16dp">
+
+            <TextView
+                android:id="@+id/favoritesTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Mes Favoris"
+                android:textSize="24sp"
+                android:textColor="@color/text_primary"
+                android:contentDescription="Titre de la section favoris" />
+
+            <ImageButton
+                android:id="@+id/filterButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_filter"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Filtrer les favoris"
+                app:tint="@color/icon_tint" />
+
+        </LinearLayout>
+
+        <!-- RecyclerView with enhanced styling -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/favoritesRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:scrollbars="vertical"
+            android:fadeScrollbars="true"
+            android:paddingTop="8dp"
+            android:paddingBottom="16dp"
+            android:visibility="gone"
+            tools:listitem="@layout/item_offer"
+            tools:itemCount="5" />
+
+    </LinearLayout>
+
+    <!-- Enhanced Empty State -->
     <LinearLayout
         android:id="@+id/emptyStateLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:padding="32dp">
 
-        <ImageView
-            android:id="@+id/emptyIcon"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/favoeris"
-            app:tint="@color/primary" />
+        <!-- Icon container with background -->
+        <FrameLayout
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="@drawable/circle_background_light">
 
+            <ImageView
+                android:id="@+id/emptyIcon"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_favorite_empty"
+                android:contentDescription="Aucun favori"
+                app:tint="@color/green_500" />
+
+        </FrameLayout>
+
+        <!-- Main message -->
         <TextView
             android:id="@+id/emptyMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Aucune offre favorite"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:textColor="@color/text_primary"
+            android:layout_marginTop="24dp"
+            android:maxWidth="280dp" />
+
+        <!-- Subtitle message -->
+        <TextView
+            android:id="@+id/emptySubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Commencez à explorer et ajoutez vos offres préférées ici"
+            android:textSize="14sp"
+            android:textAlignment="center"
+            android:textColor="@color/text_secondary"
+            android:layout_marginTop="8dp"
+            android:lineSpacingExtra="2dp"
+            android:maxWidth="320dp" />
+
+        <!-- Call to action button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/exploreButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Aucune offre favorite pour le moment"
-            android:textSize="18sp"
-            android:textAlignment="center"
-            android:textColor="@color/primary"
-            android:fontFamily="@font/poppinsmedium"
-            android:layout_marginTop="16dp" />
+            android:text="Explorer les offres"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/green_500"
+            android:layout_marginTop="32dp"
+            android:paddingHorizontal="32dp"
+            android:paddingVertical="12dp"
+            app:cornerRadius="24dp"
+            app:elevation="2dp"
+            app:rippleColor="@color/green_500" />
+
     </LinearLayout>
+
+    <!-- Loading indicator -->
+    <ProgressBar
+        android:id="@+id/loadingIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminateTint="@color/primary"
+        android:visibility="gone" />
+
+    <!-- Floating Action Button for quick actions -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabQuickAction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_search"
+        android:contentDescription="Recherche rapide"
+        app:backgroundTint="@color/green_500"
+        app:tint="@android:color/white"
+        app:elevation="6dp"
+        app:pressedTranslationZ="8dp" />
+
 </FrameLayout>

@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/homeacceuil"
+        android:icon="@drawable/ic_home_3"
         android:title="Accueil" />
 
     <item
@@ -13,7 +13,7 @@
 
     <item
         android:id="@+id/favoritesOffersFragment"
-        android:icon="@drawable/ic_heart_filled"
+        android:icon="@drawable/ic_favorites"
         android:title="Favoris" />
 
     <item
@@ -22,4 +22,5 @@
         android:title="Profil" />
 
 </menu>
+
 

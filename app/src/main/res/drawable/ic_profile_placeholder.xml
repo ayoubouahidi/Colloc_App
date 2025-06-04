@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="100dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <!-- الدائرة الخلفية -->
+    <path
+        android:fillColor="#E0E0E0"
+        android:pathData="M50,0
+                          A50,50 0 1,0 50.001,0
+                          Z" />
+
+    <!-- الرأس -->
+    <path
+        android:fillColor="#9E9E9E"
+        android:pathData="M50,25
+                          a12.5,12.5 0 1,1 -0.001,0" />
+
+    <!-- الكتفين -->
+    <path
+        android:fillColor="#9E9E9E"
+        android:pathData="M25,75
+                          c0,-13.81 11.19,-25 25,-25
+                          s25,11.19 25,25
+                          Z" />
+</vector>
