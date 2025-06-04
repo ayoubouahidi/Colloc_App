@@ -1,68 +1,286 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/myOffersRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
-    android:padding="10dp">
-    <LinearLayout
+    android:background="#F8FFF8">
+
+    <!-- App Bar Layout with collapsing toolbar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="12dp">
+        android:elevation="0dp"
+        android:background="@android:color/transparent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Mes Annonces"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            android:textColor="@color/primary"
-            android:fontFamily="@font/poppinssemibold"
-            android:layout_marginBottom="8dp" />
-
-        <View
+        <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="#DDDDDD" />
-    </LinearLayout>
+            android:layout_height="200dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:contentScrim="#4CAF50"
+            app:expandedTitleMarginStart="24dp"
+            app:expandedTitleMarginBottom="32dp">
 
-    <!-- RecyclerView for displaying user's offers -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/myOffersRecyclerView"
+            <!-- Background gradient -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/gradient_background"
+                app:layout_collapseMode="parallax" />
+
+            <!-- Floating decorative elements -->
+            <View
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="top|end"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/circle_white_background"
+                android:alpha="0.2"
+                app:layout_collapseMode="parallax" />
+
+            <View
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="top|start"
+                android:layout_marginTop="60dp"
+                android:layout_marginStart="40dp"
+                android:background="@drawable/gradient_background"
+                android:alpha="0.15"
+                app:layout_collapseMode="parallax" />
+
+            <!-- Header content -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="bottom"
+                android:padding="24dp"
+                app:layout_collapseMode="parallax">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mes Annonces"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:fontFamily="@font/poppinsbold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gérez vos publications"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/white"
+                    android:fontFamily="@font/poppinsregular"
+                    android:alpha="0.9"
+                    android:layout_marginTop="4dp" />
+
+            </LinearLayout>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Main content area -->
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:overScrollMode="never"
-        android:visibility="gone"/>
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <!-- Empty state message (hidden by default) -->
-    <LinearLayout
-        android:id="@+id/emptyStateLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:visibility="visible"
-        >
-
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/bed_empty"
-            app:tint="@color/primary" />
-
-        <TextView
-            android:id="@+id/emptyMessage"
-            android:layout_width="wrap_content"
+        <FrameLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Aucune annonce publiée"
-            android:textSize="20sp"
-            android:textColor="#888888"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/poppinsmedium" />
-    </LinearLayout>
-</FrameLayout>
+            android:paddingHorizontal="16dp"
+            android:paddingTop="16dp">
+
+            <!-- RecyclerView for displaying user's offers -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/myOffersRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                android:paddingBottom="100dp"
+                android:visibility="gone"/>
+
+            <!-- Modern Empty state -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/emptyStateCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="24dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@android:color/white"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="48dp">
+
+                    <!-- Modern icon container -->
+                    <FrameLayout
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:background="@drawable/circle_white_background">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_list"
+                            app:tint="#4CAF50" />
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Aucune annonce trouvée"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="#1A1A1A"
+                        android:layout_marginTop="24dp"
+                        android:fontFamily="@font/poppinssemibold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Vous n'avez pas encore publié d'annonces.\nCommencez dès maintenant !"
+                        android:textSize="16sp"
+                        android:textColor="#6B7280"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/poppinsregular"
+                        android:textAlignment="center"
+                        android:lineSpacingExtra="4dp" />
+
+                    <!-- Action button -->
+                    <Button
+                        android:id="@+id/createOfferButton"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="66dp"
+                        android:layout_marginTop="32dp"
+                        android:background="@drawable/gradient_background"
+                        android:elevation="4dp"
+                        android:fontFamily="@font/poppinssemibold"
+                        android:paddingHorizontal="32dp"
+                        android:text="Créer une annonce"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:cornerRadius="16dp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </FrameLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Floating Action Button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddOffer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="24dp"
+        android:src="@drawable/ic_add"
+        app:backgroundTint="#4CAF50"
+        app:tint="@android:color/white"
+        app:borderWidth="0dp"
+        app:elevation="12dp"
+        app:fabSize="normal" />
+
+    <!-- Modern stats card (optional) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/statsCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="6dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:layout_anchor="@id/appBarLayout"
+        app:layout_anchorGravity="bottom"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="20dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/totalOffersCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="#4CAF50"
+                    android:fontFamily="@font/poppinsbold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total"
+                    android:textSize="14sp"
+                    android:textColor="#6B7280"
+                    android:fontFamily="@font/poppinsregular" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#E5E7EB" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/activeOffersCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="#4CAF50"
+                    android:fontFamily="@font/poppinsbold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Actives"
+                    android:textSize="14sp"
+                    android:textColor="#6B7280"
+                    android:fontFamily="@font/poppinsregular" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

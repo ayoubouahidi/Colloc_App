@@ -41,6 +41,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center"
+                android:src="@drawable/c"
                 android:layout_marginBottom="24dp"
                 android:contentDescription="App Logo"
                 android:padding="20dp"/>
