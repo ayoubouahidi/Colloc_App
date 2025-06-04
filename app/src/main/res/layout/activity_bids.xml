@@ -341,13 +341,11 @@
                     app:boxCornerRadiusBottomStart="20dp"
                     app:boxCornerRadiusTopEnd="20dp"
                     app:boxCornerRadiusTopStart="20dp"
-                    app:boxStrokeColor="@color/input_stroke_bid"
                     app:boxStrokeWidth="0dp"
                     app:boxStrokeWidthFocused="3dp"
                     app:hintTextColor="@color/hint_bid"
                     app:prefixText="MAD "
                     app:prefixTextColor="@color/primary_modern"
-                    app:startIconDrawable="@drawable/ic_currency_modern"
                     app:startIconTint="@color/primary_modern"
                     style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
 
@@ -367,7 +365,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:background="@drawable/tip_background"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:padding="12dp">
@@ -375,7 +372,6 @@
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/ic_lightbulb"
                         app:tint="@color/tip_icon_color" />
 
                     <TextView
@@ -397,7 +393,7 @@
             android:layout_height="64dp"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="32dp"
-            android:background="@drawable/submit_button_gradient"
+            android:background="@color/primary_modern"
             android:fontFamily="@font/poppinsbold"
             android:letterSpacing="0.05"
             android:text="ENVOYER LA PROPOSITION"
@@ -407,7 +403,6 @@
             app:backgroundTint="@null"
             app:cornerRadius="24dp"
             app:elevation="12dp"
-            app:icon="@drawable/ic_send_modern"
             app:iconGravity="textEnd"
             app:iconPadding="16dp"
             app:iconSize="24dp"
@@ -430,11 +425,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/sendBidButton">
 
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:src="@drawable/ic_shield_check"
-                app:tint="@color/security_icon_color" />
+
 
             <TextView
                 android:layout_width="wrap_content"

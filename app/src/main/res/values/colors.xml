@@ -65,11 +65,9 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="green_500">#4CAF50</color>
-      <color name="status_available">#4CAF50</color>
-    <color name="success_light">#DFF5E1</color>
-
     <color name="status_available">#4CAF50</color>
     <color name="success_light">#DFF5E1</color>
+
 
     <color name="primary_modern">#4CAF50</color>
     <color name="primary_dark_modern">#2E7D32</color>

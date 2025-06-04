@@ -494,7 +494,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_logout_modern"
+                        android:src="@drawable/ic_logout"
                         app:tint="@color/logout_icon_color" />
                 </com.google.android.material.card.MaterialCardView>
 

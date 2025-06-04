@@ -1,37 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary">
+    android:background="@drawable/gradient_background">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        app:layout_constraintTop_toTopOf="parent"
+    <!-- Background circles for visual interest -->
+    <View
+        android:id="@+id/backgroundCircle1"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="-100dp"
+        android:layout_marginEnd="-100dp"
+        android:alpha="0.1"
+        android:background="@drawable/circle_white_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/backgroundCircle2"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="-75dp"
+        android:layout_marginBottom="-75dp"
+        android:alpha="0.08"
+        android:background="@drawable/circle_white_background"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Main content container with card elevation -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/mainCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:elevation="12dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="12dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/logoImage"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_marginEnd="12dp"
-            android:src="@drawable/homeacceuil"
-        app:tint="@android:color/white" />
-
-        <TextView
-            android:id="@+id/appName"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ColloCMe"
-            android:textColor="@android:color/white"
-            android:textSize="32sp"
-            android:textAlignment="center"
             android:gravity="center"
-            android:fontFamily="@font/poppinssemibold" />
-    </LinearLayout>
+            android:orientation="vertical"
+            android:padding="48dp">
+
+            <!-- Logo container with modern styling -->
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:src="@drawable/c"/>
+
+            <!-- App name with improved typography -->
+            <TextView
+                android:id="@+id/appName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/poppinssemibold"
+                android:text="locEnsemble"
+                android:textAlignment="center"
+                android:textColor="@color/primary_dark"
+                android:textSize="28sp"
+                android:letterSpacing="0.02" />
+
+            <!-- Subtitle for better context -->
+            <TextView
+                android:id="@+id/appTagline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:fontFamily="@font/poppinsregular"
+                android:text="Connect • Collaborate • Create"
+                android:textAlignment="center"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                android:alpha="0.8" />
+
+            <!-- Loading indicator -->
+            <ProgressBar
+                android:id="@+id/loadingProgress"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:indeterminateTint="@color/primary_modern"
+                android:visibility="visible" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
