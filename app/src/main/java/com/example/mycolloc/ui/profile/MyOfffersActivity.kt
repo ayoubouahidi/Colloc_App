@@ -56,10 +56,10 @@ class MyOfffersActivity : AppCompatActivity() {
 
                     if (list.isEmpty()) {
                         binding.myOffersRecyclerView.visibility = View.GONE
-                        binding.emptyStateLayout.visibility = View.VISIBLE
+//                        binding.emptyStateLayout.visibility = View.VISIBLE
                     } else {
                         binding.myOffersRecyclerView.visibility = View.VISIBLE
-                        binding.emptyStateLayout.visibility = View.GONE
+//                        binding.emptyStateLayout.visibility = View.GONE
                         adapter.submitList(list)
                     }
                 }
