@@ -78,4 +78,25 @@
     <string name="offer_image">Offer image</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="_68_rodeo_drive_los_angeles">68 Rodeo Drive, Los Angeles</string>
+
+
+<!-- Registration Form Strings -->
+
+<!-- Choose one of these subtitle options: -->
+<string name="registration_subtitle">Join us today and get started</string>
+
+
+<!-- Form Field Labels -->
+<string name="email_address">Email Address</string>
+<string name="confirm_password">Confirm Password</string>
+
+<!-- Other UI Elements -->
+<string name="agree_terms">I agree to the Terms and Conditions</string>
+<string name="or">OR</string>
+<string name="google">Google</string>
+<string name="facebook">Facebook</string>
+<string name="app_logo">App Logo</string>
+
+
 </resources>
